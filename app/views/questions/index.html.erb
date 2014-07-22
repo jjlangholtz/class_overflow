@@ -2,3 +2,7 @@
   <h2><%= question.title %></h2>
   <p><%= question.content %><p>
 <% end %>
+
+<% @answers.each do |answer| %>
+  <p><%= answer.content %><p>
+<% end %>
