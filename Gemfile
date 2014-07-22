@@ -9,6 +9,7 @@ gem 'pg'
 gem 'rails', '4.1.4'
 gem 'sass-rails', '~> 4.0.3'
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
@@ -22,5 +23,8 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
   gem 'simplecov', require: false
 end
