@@ -7,5 +7,6 @@ feature 'User answers question' do
     fill_in 'Content', with: answer.content
     click_button 'Submit'
     expect(page).to have_content(answer.content)
+    expect(page).to have_content(answer.question.content)
   end
 end

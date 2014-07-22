@@ -17,7 +17,7 @@ feature 'Manage questions' do
     question.save!
     expect(page).to have_content(question.title)
 
-    visit question_path(question)
+    click_link question.title
     expect(page).to have_content(question.title)
     expect(page).to have_content(question.content)
   end
