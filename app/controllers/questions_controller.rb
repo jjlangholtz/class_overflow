@@ -1,5 +1,9 @@
 class QuestionsController < ApplicationController
   respond_to :html
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def index
     @questions = Question.all
     @answers = Answer.all

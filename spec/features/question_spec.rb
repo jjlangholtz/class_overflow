@@ -4,8 +4,8 @@ feature 'Manage questions' do
   scenario 'lists all questions on #index' do
     q1, q2 = create_list(:question, 2)
     visit questions_path
-    expect(page).to have_content("Title #{q1.id}")
-    expect(page).to have_content("Title #{q2.id}")
+    expect(page).to have_content(q1.title)
+    expect(page).to have_content(q2.title)
   end
 
   scenario 'allows user to add a new question and view it' do
@@ -14,6 +14,7 @@ feature 'Manage questions' do
     fill_in 'Title', with: question.title
     fill_in 'Content', with: question.content
     click_button 'Submit'
+    question.save!
     expect(page).to have_content(question.title)
 
     visit question_path(question)
