@@ -8,12 +8,16 @@ feature 'Manage questions' do
     expect(page).to have_content("Title #{q2.id}")
   end
 
-  scenario 'allows user to add a new question' do
+  scenario 'allows user to add a new question and view it' do
     question = build(:question)
     visit new_question_path
     fill_in 'Title', with: question.title
     fill_in 'Content', with: question.content
     click_button 'Submit'
     expect(page).to have_content(question.title)
+
+    visit question_path(question)
+    expect(page).to have_content(question.title)
+    expect(page).to have_content(question.content)
   end
 end
