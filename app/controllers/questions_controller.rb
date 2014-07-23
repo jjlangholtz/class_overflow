@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   respond_to :html
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers
   end
 
   def index
