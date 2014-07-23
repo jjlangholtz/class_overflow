@@ -9,12 +9,11 @@ feature 'Manage questions' do
   end
 
   scenario 'allows user to add a new question and view it' do
-    question = build(:question)
+    question = build_stubbed(:question)
     visit new_question_path
     fill_in 'Title', with: question.title
     fill_in 'Content', with: question.content
     click_button 'Submit'
-    question.save!
     expect(page).to have_content(question.title)
 
     click_link question.title
